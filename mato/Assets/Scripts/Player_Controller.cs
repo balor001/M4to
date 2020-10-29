@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
@@ -7,6 +8,8 @@ public class Player_Controller : MonoBehaviour
     public float moveSpeed = 4f;
     Vector3 forward, right;
 
+    private int matoBodySize;
+    private List<Vector3> matoMovePostitionList;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +34,20 @@ public class Player_Controller : MonoBehaviour
 
     void Move()
     {
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        matoMovePostitionList.Insert(0, transform.position);
+        
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
 
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
 
-        transform.forward = heading;
+
         transform.position += rightMovement;
         transform.position += upMovement;
+
+        if (heading == Vector3.zero)
+            return;
+        transform.forward = heading;
 
     }
 }
