@@ -8,8 +8,6 @@ public class Player_Controller : MonoBehaviour
     public float moveSpeed = 4f;
     Vector3 forward, right;
 
-    private int matoBodySize;
-    private List<Vector3> matoMovePostitionList;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +32,7 @@ public class Player_Controller : MonoBehaviour
 
     void Move()
     {
-        matoMovePostitionList.Insert(0, transform.position);
-        
+ 
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
 
@@ -48,6 +45,6 @@ public class Player_Controller : MonoBehaviour
         if (heading == Vector3.zero)
             return;
         transform.forward = heading;
-
     }
+
 }
