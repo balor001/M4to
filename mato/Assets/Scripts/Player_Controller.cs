@@ -32,12 +32,10 @@ public class Player_Controller : MonoBehaviour
 
     void Move()
     {
- 
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
 
         Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
-
 
         transform.position += rightMovement;
         transform.position += upMovement;
@@ -46,5 +44,4 @@ public class Player_Controller : MonoBehaviour
             return;
         transform.forward = heading;
     }
-
 }
