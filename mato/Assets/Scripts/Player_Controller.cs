@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
     public float moveSpeed = 4f;
     Vector3 forward, right;
 
+    public GameObject BodyPartObject;
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +18,19 @@ public class Player_Controller : MonoBehaviour
         forward = Vector3.Normalize(forward);
 
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Input.GetAxis("Horizontal"));
-        //Debug.Log(Input.GetAxis("Vertical"));
         if (true)
         {
-            Move();
+            Movement();
         }
     }
 
-    void Move()
+    void Movement()
     {
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
@@ -43,5 +43,15 @@ public class Player_Controller : MonoBehaviour
         if (heading == Vector3.zero)
             return;
         transform.forward = heading;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Snack
+        if (other.gameObject.CompareTag("Snack"))
+        {
+            BodyPartObject.GetComponent<Player_GrowScript>().Grow();
+            Destroy(other.gameObject);
+        }
     }
 }
