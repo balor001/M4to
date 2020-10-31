@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6650907870451315768}
   - component: {fileID: 8910427051841372402}
   - component: {fileID: -2351134336655250259}
+  - component: {fileID: 2042308626475876912}
   m_Layer: 0
-  m_Name: CharacterBody
+  m_Name: BodyPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6965043604455088423}
-  m_LocalRotation: {x: 0, y: 0.39423528, z: 0, w: 0.91900957}
-  m_LocalPosition: {x: 3.6477802, y: 0, z: -0.72409445}
+  m_LocalRotation: {x: 0, y: -0.63207257, z: 0, w: -0.7749092}
+  m_LocalPosition: {x: -1.0487655, y: 0, z: 1.2626891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,3 +94,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2042308626475876912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965043604455088423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58376d5466a3c4841a9e0433b3d7ac7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
