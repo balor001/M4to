@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 6580904052043040818}
   - component: {fileID: 6580904052043040819}
   - component: {fileID: 5826734003557486505}
+  - component: {fileID: 7685441837067629184}
   - component: {fileID: 6580904052043040816}
   m_Layer: 0
   m_Name: Head
@@ -276,6 +277,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &7685441837067629184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580904052043040813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c66838560f8ccf44b7da3521704f67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6580904052043040816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  rotationSpeed: 45
+  bulletForce: 100
   BodyPartObject: {fileID: 6580904051917107711}
+  bullet: {fileID: 0}
 --- !u!1 &6580904052825248359
 GameObject:
   m_ObjectHideFlags: 0
