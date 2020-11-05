@@ -11,8 +11,7 @@ public class Enemy_Logic_Chase : MonoBehaviour
     public int HowClose = 0;
 
 
-    // Start is called before the first frame update
-    void Start()
+    void FindPlayer()
     {
         Player = GameObject.FindWithTag("Player").transform;
     }
@@ -20,7 +19,7 @@ public class Enemy_Logic_Chase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Player == null) FindPlayer();
 
         //Move towards player
         //
