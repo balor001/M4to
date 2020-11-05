@@ -17,4 +17,12 @@ public class Bullet : MonoBehaviour
         float moveSpeed = 100f;
         transform.position += shootDir * moveSpeed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other, 0.5f);
+        }
+    }
 }

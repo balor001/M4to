@@ -14,7 +14,6 @@ public class Player_Shoot : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Shoot();
-
         }
     }
 
