@@ -872,5 +872,22 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6580904052043040816, guid: 60837cf26eb291a43b0a82d7382981ac,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3253280072721793811, guid: 27cc59752e81e22488979e93ce93ecb5,
+        type: 3}
+    - target: {fileID: 6580904052043040816, guid: 60837cf26eb291a43b0a82d7382981ac,
+        type: 3}
+      propertyPath: bulletForce
+      value: 1e+11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685441837067629184, guid: 60837cf26eb291a43b0a82d7382981ac,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7054475643756838035, guid: 27cc59752e81e22488979e93ce93ecb5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60837cf26eb291a43b0a82d7382981ac, type: 3}

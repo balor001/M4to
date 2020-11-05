@@ -9,9 +9,11 @@ public class Player_Controller : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float rotationSpeed = 45f;
+
     Vector3 forward, right;
 
     public GameObject BodyPartObject;
+
 
     Vector3 rightMovement;
     Vector3 upMovement;
@@ -37,8 +39,6 @@ public class Player_Controller : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-
-
     }
 
     // Update is called once per frame
@@ -50,7 +50,10 @@ public class Player_Controller : MonoBehaviour
         {
             Movement();
         }
+
+
     }
+
 
     void Movement()
     {

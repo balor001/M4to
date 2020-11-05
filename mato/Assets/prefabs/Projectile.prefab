@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7054475643756838035}
   - component: {fileID: 4946525407879425338}
   - component: {fileID: 4965799582977412483}
+  - component: {fileID: 2059115827866544955}
   - component: {fileID: 4710341516394576523}
   m_Layer: 0
   m_Name: Projectile
@@ -80,6 +81,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2059115827866544955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3253280072721793811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75cd8a7c4689a84caaf7f3ec0f71077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &4710341516394576523
 SphereCollider:
   m_ObjectHideFlags: 0
