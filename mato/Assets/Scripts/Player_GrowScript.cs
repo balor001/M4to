@@ -11,7 +11,7 @@ public class Player_GrowScript : MonoBehaviour
     private float zPos;
     private float scaleMultiplier = 1;
 
-    public GameObject bodyPart;
+    public GameObject bodyPartPrefab;
     public GameObject tailPart;
     public GameObject headPart;
 
@@ -30,13 +30,11 @@ public class Player_GrowScript : MonoBehaviour
     void Start()
     {
         matoBodyParts = new List<GameObject>();
-        bodyPartScript = bodyPart.GetComponent<Player_BodyPart>();
+        bodyPartScript = bodyPartPrefab.GetComponent<Player_BodyPart>();
     }
 
     private void Update()
     {
-        Debug.Log(matoBodyParts.Count);
-
         // Check that list isn't null
         if (matoBodyParts != null)
         {
@@ -69,7 +67,6 @@ public class Player_GrowScript : MonoBehaviour
                 // tail follows the last bodypart in the list
                 Follow(tailPart, matoBodyParts.Last());
             }
-
         }
     }
 
@@ -88,7 +85,7 @@ public class Player_GrowScript : MonoBehaviour
             @object.transform.rotation = Quaternion.Lerp(@object.transform.rotation, @object.transform.rotation * newRotation, rotSpeed * Time.deltaTime); //rotation done from current to target rotation
         }
 
-        // Move
+        // Move toward until distance treshold is met
         if (Distance > DisThreshold)
         {
             @object.transform.position = Vector3.Lerp(@object.transform.position, @object.transform.position + TargetDirection, moveSpeed * Time.deltaTime);
@@ -102,16 +99,14 @@ public class Player_GrowScript : MonoBehaviour
 
         // Maton BodyPartit pitäisi pienentää 0.7 - 0.99
 
-        GameObject bPart = Instantiate(bodyPart); // Instantiate new bodypart
+        GameObject bPart = Instantiate(bodyPartPrefab); // Instantiate new bodypart
         matoBodyParts.Add(bPart); // Add the new Instantiated object to list
         bPart.transform.parent = transform; // Instantiate it as a parent of this object
-        bPart.transform.localPosition = transform.position + new Vector3(0, 0, zPos); // Transform it behind the object
+        bPart.transform.position = tailPart.transform.position;
         bPart.transform.rotation = new Quaternion(0, 0, 0, 0); // Zeros the rotation
         bPart.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1); // Scales down the object
         bPart.name = "BodyPart_" + matoBodyParts.Count; 
 
-        tailPart.transform.parent = transform;
-
-        tailPart.transform.localPosition = new Vector3(0, 0, zPos - 1.5f);
+        tailPart.transform.position = tailPart.transform.position + new Vector3(0, 0, zPos - 1.5f).normalized;
     }
 }

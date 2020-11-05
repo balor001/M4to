@@ -364,6 +364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8037214163475491842, guid: b4736983350b6fc4885f5777332b035a,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4736983350b6fc4885f5777332b035a, type: 3}
 --- !u!1 &705507993
@@ -440,7 +445,7 @@ Light:
   m_BounceIntensity: 4
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.2146e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 1e-45, z: 3.474e-42, w: 5.9e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -452,31 +457,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.727531, y: -0.23534398, z: -0.08299104, w: 0.63908094}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 27, y: 60, z: 10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 117.020996, y: -291.889, z: -279.167}
---- !u!1 &832117742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6580904052043040813, guid: 60837cf26eb291a43b0a82d7382981ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 6580904052856280003}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &832117743
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832117742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &842699577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,25 +753,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4736983350b6fc4885f5777332b035a, type: 3}
---- !u!1 &1959194730 stripped
+--- !u!1 &1661303071 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6580904051048424361, guid: 60837cf26eb291a43b0a82d7382981ac,
+  m_CorrespondingSourceObject: {fileID: 6580904051917107711, guid: 60837cf26eb291a43b0a82d7382981ac,
     type: 3}
   m_PrefabInstance: {fileID: 6580904052856280003}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1959194734
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959194730}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1, z: 1.0000002}
-  m_Center: {x: 2.842171e-14, y: 0.5, z: -0.00000023841858}
 --- !u!1001 &6580904052856280003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,10 +836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mato
       objectReference: {fileID: 0}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
+    - target: {fileID: 6580904051716534223, guid: 60837cf26eb291a43b0a82d7382981ac,
         type: 3}
-      propertyPath: matoBodyParts.Array.size
-      value: 0
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
         type: 3}
@@ -874,29 +847,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6965043604455088423, guid: b700e8b2d3dfc5044a79fa3ff7ce45c6,
         type: 3}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
+    - target: {fileID: 6580904052043040816, guid: 60837cf26eb291a43b0a82d7382981ac,
         type: 3}
-      propertyPath: headPart
+      propertyPath: BodyObject
       value: 
-      objectReference: {fileID: 832117742}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
-        type: 3}
-      propertyPath: DisThreshold
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
-        type: 3}
-      propertyPath: tailPart
-      value: 
-      objectReference: {fileID: 1959194730}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
+      objectReference: {fileID: 1661303071}
+    - target: {fileID: 6580904052043040816, guid: 60837cf26eb291a43b0a82d7382981ac,
         type: 3}
       propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6580904051917107710, guid: 60837cf26eb291a43b0a82d7382981ac,
-        type: 3}
-      propertyPath: rotSpeed
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
