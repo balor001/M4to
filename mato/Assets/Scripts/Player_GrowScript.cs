@@ -8,17 +8,19 @@ public class Player_GrowScript : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> matoBodyParts;
+    public int matoSize;
     private float zPos;
     private float scaleMultiplier = 1;
 
     public GameObject bodyPartPrefab;
     public GameObject tailPart;
     public GameObject headPart;
+    public GameObject turretPart;
 
     public float RotThreshold = 1; //Thresholds to stop moving
     public float DisThreshold = 1.25f;
 
-    public float moveSpeed = 4f; //speed values to rotate and move
+    public float moveSpeed = 10f; //speed values to rotate and move
     public float rotSpeed = 4f;
 
     Vector3 TargetDirection;
@@ -31,6 +33,12 @@ public class Player_GrowScript : MonoBehaviour
     {
         matoBodyParts = new List<GameObject>();
         bodyPartScript = bodyPartPrefab.GetComponent<Player_BodyPart>();
+
+
+        for (int i = 0; i < matoSize; i++)
+        {
+            Grow();
+        }
     }
 
     private void Update()
@@ -41,20 +49,22 @@ public class Player_GrowScript : MonoBehaviour
             // When there's no bodyparts, tail follows the head
             if (matoBodyParts.Count == 0)
             {
-                Follow(tailPart, headPart); // tail follows head
+                Follow(turretPart, headPart); // turret follows head
+                Follow(tailPart, turretPart); // tail follows head
             }
-            
+
             // When Mato is larger than 0
             else if (matoBodyParts.Count > 0)
             {
+                Follow(turretPart, headPart); // turret follows head
                 // Iterate through every bodypart
                 for (int i = 0; i < matoBodyParts.Count; i++)
                 {
-                    
+
                     // first bodypart follows the head
                     if (i == 0)
                     {
-                        Follow(matoBodyParts[i], headPart);
+                        Follow(matoBodyParts[i], turretPart);
                     }
 
                     // Other bodyparts follow the next bodypart in the list
@@ -104,8 +114,8 @@ public class Player_GrowScript : MonoBehaviour
         bPart.transform.parent = transform; // Instantiate it as a parent of this object
         bPart.transform.position = tailPart.transform.position;
         bPart.transform.rotation = new Quaternion(0, 0, 0, 0); // Zeros the rotation
-        bPart.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1); // Scales down the object
-        bPart.name = "BodyPart_" + matoBodyParts.Count; 
+        //bPart.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1); // Scales down the object
+        bPart.name = "BodyPart_" + matoBodyParts.Count;
 
         tailPart.transform.position = tailPart.transform.position + new Vector3(0, 0, zPos - 1.5f).normalized;
     }

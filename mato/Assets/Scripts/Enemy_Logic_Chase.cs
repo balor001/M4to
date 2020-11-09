@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Logic_Chase : MonoBehaviour
 {
 
-    public Transform Player;
+    private Transform Player;
     public int MoveSpeed = 4;
     public int NoFurtherThan = 10;
     public int HowClose = 0;

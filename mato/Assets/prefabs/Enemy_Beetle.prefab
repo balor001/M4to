@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2812673449490864076}
   - component: {fileID: 8966720465765740672}
+  - component: {fileID: 7482664268748871548}
   m_Layer: 0
   m_Name: Enemy_Beetle
   m_TagString: Enemy
@@ -44,10 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63741c26c214edb4a98b9b82f362201d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   MoveSpeed: 4
   NoFurtherThan: 10
   HowClose: 0
+--- !u!65 &7482664268748871548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191701834255583359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2.5}
+  m_Center: {x: 0, y: 0.5, z: 0.3}
 --- !u!1001 &412258143553741529
 PrefabInstance:
   m_ObjectHideFlags: 0

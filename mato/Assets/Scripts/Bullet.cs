@@ -18,11 +18,13 @@ public class Bullet : MonoBehaviour
         transform.position += shootDir * moveSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(other, 0.5f);
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
+
 }

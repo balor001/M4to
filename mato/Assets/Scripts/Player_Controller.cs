@@ -14,6 +14,13 @@ public class Player_Controller : MonoBehaviour
 
     public GameObject BodyPartObject;
 
+    public GameObject TurretObject;
+    public Transform gunEndPoint;
+    [SerializeField] private Transform bullet;
+
+    public float fireRate = 2f;
+    public float nextFire;
+    public float bulletForce = 100f;
 
     Vector3 rightMovement;
     Vector3 upMovement;
@@ -22,7 +29,8 @@ public class Player_Controller : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-
+    private float r_horizontalInput;
+    private float r_verticalInput;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +41,16 @@ public class Player_Controller : MonoBehaviour
 
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         tresholdRotation = Quaternion.Euler(0, 100, 0);
+        nextFire = Time.time;
     }
 
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+
+        r_horizontalInput = Input.GetAxis("R_Horizontal");
+        r_verticalInput = Input.GetAxis("R_Vertical");
     }
 
     // Update is called once per frame
@@ -51,13 +63,43 @@ public class Player_Controller : MonoBehaviour
             Movement();
         }
 
-
+        if (Mathf.Abs(r_horizontalInput) > 0.25 || Mathf.Abs(r_verticalInput) > 0.25)
+        {
+            Shoot();
+        }
     }
 
+    void Shoot()
+    {
+        Vector3 Xshoot = right * moveSpeed * Time.deltaTime * r_horizontalInput;
+        Vector3 YShoot = forward * moveSpeed * Time.deltaTime * r_verticalInput;
+        Vector3 heading = new Vector3((Xshoot.x + YShoot.x), 0, (Xshoot.z + YShoot.z));
+
+
+
+        if (heading == Vector3.zero)
+        {
+            return;
+        }
+        else
+        {
+            Quaternion rotation = Quaternion.LookRotation(heading, Vector3.up);
+            TurretObject.transform.rotation = rotation;
+
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Transform bulletTransform = Instantiate(bullet, gunEndPoint.position, Quaternion.identity);
+
+                bulletTransform.GetComponent<Bullet>().Setup(heading);
+            }
+
+        }
+    }
 
     void Movement()
     {
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontalInput;   
+        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontalInput;
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime * verticalInput;
         Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
         Quaternion rotation;
@@ -71,17 +113,6 @@ public class Player_Controller : MonoBehaviour
             rotation = Quaternion.LookRotation(heading, Vector3.up);
             transform.rotation = rotation;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
-        upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
-
-        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, heading);
     }
 
     void OnTriggerEnter(Collider other)
