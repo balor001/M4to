@@ -62,7 +62,8 @@ public class Player_Controller : MonoBehaviour
         // Conditions
 
         // Win condition
-        if (pickUpCount >= gameController.winCondition)
+        Debug.Log(gameController.play);
+        if (pickUpCount >= gameController.winCondition && gameController.play)
         {
             gameController.WinLevel();
             activeControls = false;

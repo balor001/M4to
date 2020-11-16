@@ -3413,7 +3413,7 @@ PrefabInstance:
     - target: {fileID: 2539983586099264890, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
       propertyPath: winCondition
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2539983586099264891, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
