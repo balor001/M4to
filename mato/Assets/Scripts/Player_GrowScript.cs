@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player_GrowScript : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> matoBodyParts;
+    private List<Transform> bodyParts; // GameObject
     public int matoSize;
     private float zPos;
     private float scaleMultiplier = 1;
@@ -17,11 +17,16 @@ public class Player_GrowScript : MonoBehaviour
     public GameObject headPart;
     public GameObject turretPart;
 
+    private Transform curBodyPart;
+    private Transform PrevBodyPart;
+
     public float RotThreshold = 1; //Thresholds to stop moving
     public float DisThreshold = 1.25f;
+    private float dis;
 
     public float moveSpeed = 10f; //speed values to rotate and move
     public float rotSpeed = 4f;
+
 
     Vector3 TargetDirection;
     float Distance; //distance between the object and the target 
@@ -31,51 +36,52 @@ public class Player_GrowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        matoBodyParts = new List<GameObject>();
+       // bodyParts = new List<GameObject>();
+        bodyParts = new List<Transform>();
         bodyPartScript = bodyPartPrefab.GetComponent<Player_BodyPart>();
 
 
-        for (int i = 0; i < matoSize; i++)
-        {
-            Grow();
-        }
+       for (int i = 0; i < matoSize; i++)
+       {
+           Grow();
+       }
     }
 
     private void Update()
     {
         // Check that list isn't null
-        if (matoBodyParts != null)
+        if (bodyParts != null)
         {
             // When there's no bodyparts, tail follows the head
-            if (matoBodyParts.Count == 0)
+            if (bodyParts.Count == 0)
             {
                 Follow(turretPart, headPart); // turret follows head
                 Follow(tailPart, turretPart); // tail follows head
             }
 
             // When Mato is larger than 0
-            else if (matoBodyParts.Count > 0)
+            else if (bodyParts.Count > 0)
             {
                 Follow(turretPart, headPart); // turret follows head
                 // Iterate through every bodypart
-                for (int i = 0; i < matoBodyParts.Count; i++)
+                for (int i = 0; i < bodyParts.Count; i++)
                 {
 
                     // first bodypart follows the head
                     if (i == 0)
                     {
-                        Follow(matoBodyParts[i], turretPart);
+                        Follow(bodyParts[i].gameObject, turretPart);
                     }
 
                     // Other bodyparts follow the next bodypart in the list
                     else
                     {
-                        Follow(matoBodyParts[i], matoBodyParts[i - 1]);
+                        Follow(bodyParts[i].gameObject, bodyParts[i - 1].gameObject);
                     }
                 }
 
                 // tail follows the last bodypart in the list
-                Follow(tailPart, matoBodyParts.Last());
+                Follow(tailPart, bodyParts.Last().gameObject);
             }
         }
     }
@@ -90,6 +96,9 @@ public class Player_GrowScript : MonoBehaviour
         Vector3 forward = Vector3.Scale(@object.transform.forward, new Vector3(1, 0, 1)); //forward vector of current object
         Vector3 forwardUp = TargetDirection; //target rotation 
         Quaternion newRotation = Quaternion.FromToRotation(forward, forwardUp); //rotation calculated from current forward direction to target object's direction
+
+        Vector3 newpos = @object.transform.position;
+
         if (newRotation.eulerAngles.magnitude > RotThreshold) //If the needed rotation bigger than the threshold object rotates
         {
             @object.transform.rotation = Quaternion.Lerp(@object.transform.rotation, @object.transform.rotation * newRotation, rotSpeed * Time.deltaTime); //rotation done from current to target rotation
@@ -109,14 +118,16 @@ public class Player_GrowScript : MonoBehaviour
 
         // Maton BodyPartit pitäisi pienentää 0.7 - 0.99
 
-        GameObject bPart = Instantiate(bodyPartPrefab); // Instantiate new bodypart
-        matoBodyParts.Add(bPart); // Add the new Instantiated object to list
+        Transform bPart = Instantiate(bodyPartPrefab.transform); // Instantiate new bodypart
+        bodyParts.Add(bPart); // Add the new Instantiated object to list
         bPart.transform.parent = transform; // Instantiate it as a parent of this object
         bPart.transform.position = tailPart.transform.position;
         bPart.transform.rotation = new Quaternion(0, 0, 0, 0); // Zeros the rotation
         //bPart.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1); // Scales down the object
-        bPart.name = "BodyPart_" + matoBodyParts.Count;
+        bPart.name = "BodyPart_" + bodyParts.Count;
 
         tailPart.transform.position = tailPart.transform.position + new Vector3(0, 0, zPos - 1.5f).normalized;
     }
+
+
 }

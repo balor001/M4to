@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+    public bool activeControls = true;
+    
     public float moveSpeed = 4f;
     public float rotationSpeed = 45f;
 
@@ -32,6 +34,10 @@ public class Player_Controller : MonoBehaviour
     private float r_horizontalInput;
     private float r_verticalInput;
 
+    public Game_Controller gameController;
+    public int pickUpCount = 0;
+    public int countTreshold = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +48,7 @@ public class Player_Controller : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         tresholdRotation = Quaternion.Euler(0, 100, 0);
         nextFire = Time.time;
+
     }
 
     private void Update()
@@ -51,24 +58,75 @@ public class Player_Controller : MonoBehaviour
 
         r_horizontalInput = Input.GetAxis("R_Horizontal");
         r_verticalInput = Input.GetAxis("R_Vertical");
+
+        // Conditions
+
+        // Win condition
+        if (pickUpCount >= gameController.winCondition)
+        {
+            gameController.WinLevel();
+            activeControls = false;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime; // Go forward at all times.
-
-        if (Mathf.Abs(verticalInput) > 0.25 || Mathf.Abs(horizontalInput) > 0.25)
+        if (activeControls)
         {
-            Movement();
-        }
+            transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime; // Go forward at all times.
 
-        if (Mathf.Abs(r_horizontalInput) > 0.25 || Mathf.Abs(r_verticalInput) > 0.25)
-        {
-            Shoot();
+            if (Mathf.Abs(verticalInput) > 0.25 || Mathf.Abs(horizontalInput) > 0.25)
+            {
+                Movement();
+            }
         }
     }
 
+
+    void Movement()
+    {
+        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontalInput;
+        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * verticalInput;
+        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
+        Quaternion rotation;
+
+        if (heading == Vector3.zero)
+        {
+            return;
+        }
+        else
+        {
+            rotation = Quaternion.LookRotation(heading, Vector3.up);
+            transform.rotation = rotation;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Snack
+        if (other.gameObject.CompareTag("Snack"))
+        {
+            BodyPartObject.GetComponent<Player_GrowScript>().Grow();
+            other.gameObject.SetActive(false);
+
+            pickUpCount++;
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            gameController.GameOver();
+            activeControls = false;
+        }
+    }
+    
+    #region Old broken Shooting Mechanics
+    /*
+        //if (Mathf.Abs(r_horizontalInput) > 0.25 || Mathf.Abs(r_verticalInput) > 0.25)
+       //{
+       //    Shoot();
+       //}
+     
     void Shoot()
     {
         Vector3 Xshoot = right * moveSpeed * Time.deltaTime * r_horizontalInput;
@@ -96,32 +154,6 @@ public class Player_Controller : MonoBehaviour
 
         }
     }
-
-    void Movement()
-    {
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontalInput;
-        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * verticalInput;
-        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
-        Quaternion rotation;
-
-        if (heading == Vector3.zero)
-        {
-            return;
-        }
-        else
-        {
-            rotation = Quaternion.LookRotation(heading, Vector3.up);
-            transform.rotation = rotation;
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        // Snack
-        if (other.gameObject.CompareTag("Snack"))
-        {
-            BodyPartObject.GetComponent<Player_GrowScript>().Grow();
-            Destroy(other.gameObject);
-        }
-    }
+    */
+    #endregion
 }
