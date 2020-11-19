@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 152107843050385243}
   - component: {fileID: 152107843050385242}
   - component: {fileID: 690391791511152832}
-  - component: {fileID: 3738085242078139881}
   - component: {fileID: 152107843050385241}
   m_Layer: 0
   m_Name: Head
@@ -95,20 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3738085242078139881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152107843050385220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c66838560f8ccf44b7da3521704f67c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 7054475643756838035, guid: 27cc59752e81e22488979e93ce93ecb5, type: 3}
-  bulletForce: 100
 --- !u!114 &152107843050385241
 MonoBehaviour:
   m_ObjectHideFlags: 0

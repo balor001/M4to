@@ -16,9 +16,11 @@ public class Player_Controller : MonoBehaviour
 
     public GameObject BodyPartObject;
 
+    /*
     public GameObject TurretObject;
     public Transform gunEndPoint;
     [SerializeField] private Transform bullet;
+    */
 
     public float fireRate = 2f;
     public float nextFire;
@@ -31,12 +33,14 @@ public class Player_Controller : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-    private float r_horizontalInput;
-    private float r_verticalInput;
+    //private float r_horizontalInput;
+    //private float r_verticalInput;
 
     public Game_Controller gameController;
     public int pickUpCount = 0;
     public int countTreshold = 3;
+
+    public Joystick joystick;
 
     // Start is called before the first frame update
     void Start()
@@ -53,11 +57,11 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
-        r_horizontalInput = Input.GetAxis("R_Horizontal");
-        r_verticalInput = Input.GetAxis("R_Vertical");
+        horizontalInput = Input.GetAxis("Horizontal") + joystick.Horizontal;
+        verticalInput = Input.GetAxis("Vertical") + joystick.Vertical;
+        
+        //r_horizontalInput = Input.GetAxis("R_Horizontal");
+        //r_verticalInput = Input.GetAxis("R_Vertical");
 
         // Conditions
 
