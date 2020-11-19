@@ -42,12 +42,12 @@ public class AudioManager : MonoBehaviour
 		}
 
 		//totally arbitrary values that will be replaced when the saving system is implemented
-		masterVolume = 0.2f;
-		musicVolume = 0.34f;
-		SFXVolume = 0.2f;
+		masterVolume = 0.5f;
+		musicVolume = 0.5f;
+		SFXVolume = 0.5f;
 
 		//Plays the current gamemusic
-		Play("SBMusic");
+		Play("MenuMusic");
 	}
 
 	//Finds the sound that we want it to play
