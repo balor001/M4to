@@ -43,4 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d1e4909d89f584e9a3f736d9a19192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartDelay: 1
+  winUI: {fileID: 0}
+  loseUI: {fileID: 0}
+  winCondition: 6
+  play: 1
