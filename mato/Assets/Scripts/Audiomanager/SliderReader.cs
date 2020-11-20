@@ -16,7 +16,7 @@ public class SliderReader : MonoBehaviour
     public GameObject audioHere;
     
 
-    public void Awake()
+    public void Start()
     {
         /*This sets the sliders in the appropriate spots
          *By first finding the audiomanager that manages the main volume modifiers*/
