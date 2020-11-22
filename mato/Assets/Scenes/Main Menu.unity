@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 641425869}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeSFXVol
         m_Mode: 0
         m_Arguments:
@@ -2492,7 +2492,6 @@ GameObject:
   - component: {fileID: 641425866}
   - component: {fileID: 641425865}
   - component: {fileID: 641425868}
-  - component: {fileID: 641425869}
   m_Layer: 5
   m_Name: AudioMenu
   m_TagString: Untagged
@@ -2589,25 +2588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3936a5af3409cd45afce73b7205f67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &641425869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641425863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139766d4689c3dc418a522e48f78d4db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterVolume: 0
-  musicVolume: 0
-  SFXVolume: 0
-  masterSlider: {fileID: 1675989993}
-  musicSlider: {fileID: 1475273098}
-  SFXSlider: {fileID: 348059930}
-  audioHere: {fileID: 0}
 --- !u!1001 &652614309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4054,6 +4034,7 @@ GameObject:
   - component: {fileID: 1090422823}
   - component: {fileID: 1090422825}
   - component: {fileID: 1090422824}
+  - component: {fileID: 1090422826}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -4122,6 +4103,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090422822}
   m_CullTransparentMesh: 0
+--- !u!114 &1090422826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090422822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139766d4689c3dc418a522e48f78d4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 0
+  musicVolume: 0
+  SFXVolume: 0
+  masterSlider: {fileID: 1675989993}
+  musicSlider: {fileID: 1475273098}
+  SFXSlider: {fileID: 348059930}
+  audioHere: {fileID: 0}
 --- !u!1 &1143282685
 GameObject:
   m_ObjectHideFlags: 0
@@ -5545,7 +5545,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 641425869}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeMusicVol
         m_Mode: 0
         m_Arguments:
@@ -6581,7 +6581,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 641425869}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeMasterVol
         m_Mode: 0
         m_Arguments:
