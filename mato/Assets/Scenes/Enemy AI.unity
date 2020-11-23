@@ -314,7 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: Head
   smoothSpeed: 0.125
-  offset: {x: -14.5, y: 11.8, z: -14.5}
+  offset: {x: 0, y: 0, z: 0}
+  inheritTransform: 1
 --- !u!1001 &1529502710
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class clicker : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     void Update()
     {
-        //This only plays the clicking sound in scene when the button is clicked
+        //This is the trigger, irrelevant atm
         if (Input.GetButtonDown("Fire1"))
         {
-            FindObjectOfType<AudioManager>().Play("ClickSound");
+            //The sound has to be exactly the sound to be played
+            audioManager.Play("Sound");
         }
     }
 }

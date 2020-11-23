@@ -5685,7 +5685,7 @@ MonoBehaviour:
     category: sfx
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1486518782
 Transform:
