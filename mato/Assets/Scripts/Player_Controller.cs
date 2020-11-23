@@ -63,8 +63,6 @@ public class Player_Controller : MonoBehaviour
         //r_horizontalInput = Input.GetAxis("R_Horizontal");
         //r_verticalInput = Input.GetAxis("R_Vertical");
 
-        // Conditions
-
         // Win condition
         Debug.Log(gameController.play);
         if (pickUpCount >= gameController.winCondition && gameController.play)
