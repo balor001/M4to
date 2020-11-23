@@ -33,7 +33,7 @@ public class Camera_Follow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         //Where the camera needs to be in order to follow the player, offset is added so the camera isn't inside the player
         desiredPosition = target.position + offset;
@@ -42,7 +42,7 @@ public class Camera_Follow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
 
         //Turns the camera to look directly at the player
-        transform.LookAt(target);
+        //transform.LookAt(target);
         //transform.position = smoothedPosition;
     }
 
