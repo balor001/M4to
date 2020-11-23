@@ -47,7 +47,7 @@ public class Player_GrowScript : MonoBehaviour
        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Check that list isn't null
         if (bodyParts != null)
