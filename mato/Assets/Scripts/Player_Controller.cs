@@ -44,6 +44,7 @@ public class Player_Controller : MonoBehaviour
 
     AudioManager audioManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +56,7 @@ public class Player_Controller : MonoBehaviour
         tresholdRotation = Quaternion.Euler(0, 100, 0);
         nextFire = Time.time;
 
-        audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -116,11 +117,16 @@ public class Player_Controller : MonoBehaviour
             BodyPartObject.GetComponent<Player_GrowScript>().Grow();
             other.gameObject.SetActive(false);
             audioManager.Play("EatSound");
-
             pickUpCount++;
         }
 
         if (other.gameObject.CompareTag("Player"))
+        {
+            gameController.GameOver();
+            activeControls = false;
+        }
+
+        if (other.gameObject.CompareTag("Collider"))
         {
             gameController.GameOver();
             activeControls = false;
