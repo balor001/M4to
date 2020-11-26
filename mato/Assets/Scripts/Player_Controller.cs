@@ -42,6 +42,8 @@ public class Player_Controller : MonoBehaviour
 
     public Joystick joystick;
 
+    AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class Player_Controller : MonoBehaviour
         tresholdRotation = Quaternion.Euler(0, 100, 0);
         nextFire = Time.time;
 
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -112,6 +115,7 @@ public class Player_Controller : MonoBehaviour
         {
             BodyPartObject.GetComponent<Player_GrowScript>().Grow();
             other.gameObject.SetActive(false);
+            audioManager.Play("EatSound");
 
             pickUpCount++;
         }
