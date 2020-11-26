@@ -10,15 +10,11 @@ public class Player_GrowScript : MonoBehaviour
     private List<Transform> bodyParts; // GameObject
     public int matoSize;
     private float zPos;
-    private float scaleMultiplier = 1;
 
     public GameObject bodyPartPrefab;
     public GameObject tailPart;
     public GameObject headPart;
     public GameObject turretPart;
-
-    private Transform curBodyPart;
-    private Transform PrevBodyPart;
 
     public float RotThreshold = 1; //Thresholds to stop moving
     public float DisThreshold = 1.25f;
@@ -31,16 +27,14 @@ public class Player_GrowScript : MonoBehaviour
     Vector3 TargetDirection;
     float Distance; //distance between the object and the target 
 
-    Player_BodyPart bodyPartScript;
+    Transform prevbPart;
+    Transform currentbPart;
 
     // Start is called before the first frame update
     void Start()
     {
        // bodyParts = new List<GameObject>();
         bodyParts = new List<Transform>();
-        bodyPartScript = bodyPartPrefab.GetComponent<Player_BodyPart>();
-
-
        for (int i = 0; i < matoSize; i++)
        {
            Grow();
@@ -117,16 +111,18 @@ public class Player_GrowScript : MonoBehaviour
         zPos = zPos - 1.25f; // Sets position
 
         // Maton BodyPartit pitäisi pienentää 0.7 - 0.99
+        // ...
 
         Transform bPart = Instantiate(bodyPartPrefab.transform); // Instantiate new bodypart
+        bPart.transform.position = tailPart.transform.position;
         bodyParts.Add(bPart); // Add the new Instantiated object to list
         bPart.transform.parent = transform; // Instantiate it as a parent of this object
-        bPart.transform.position = tailPart.transform.position;
+        //tailPart.transform.rotation = new Quaternion(0, 0, 0, 0); // Zeros the rotation
         bPart.transform.rotation = new Quaternion(0, 0, 0, 0); // Zeros the rotation
         //bPart.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1); // Scales down the object
         bPart.name = "BodyPart_" + bodyParts.Count;
 
-        tailPart.transform.position = tailPart.transform.position + new Vector3(0, 0, zPos - 1.5f).normalized;
+        tailPart.transform.position = tailPart.transform.position + new Vector3(0, 0, zPos).normalized;
     }
 
 

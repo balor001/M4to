@@ -20,11 +20,6 @@ public class Player_Controller : MonoBehaviour
     public float nextFire;
     public float bulletForce = 100f;
 
-    Vector3 rightMovement;
-    Vector3 upMovement;
-
-    Quaternion tresholdRotation;
-
     private float horizontalInput;
     private float verticalInput;
 
@@ -38,16 +33,18 @@ public class Player_Controller : MonoBehaviour
     AudioManager audioManager;
 
 
+    Vector3 lastDirection;
+    public float oppositeThreshhold = 0; // How precisely does the analog stick have to be pressed in the opposite direction it was previously?
+
     // Start is called before the first frame update
     void Start()
     {
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
+        forward = Camera.main.transform.forward; // Use cameras forward vector, makes forward movement of "north"
+        forward.y = 0; // Ensure y-value is always zero (No up and down movement)
+        forward = Vector3.Normalize(forward); // Normalizes forward vector, makes lenght of forward vector 1
 
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-        tresholdRotation = Quaternion.Euler(0, 100, 0);
-        nextFire = Time.time;
+        // 
+        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // Makes right vector basically -45 degrees from the world axis
 
         if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
     }
@@ -81,22 +78,28 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-
+    // Moves the Head object, or rather it rotates the object
     void Movement()
     {
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * horizontalInput;
-        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * verticalInput;
-        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z));
-        Quaternion rotation;
+        Vector3 rightMovement = right * horizontalInput; // Makes rightmovement align with the horizontal input in isometric view (West, east)
+        Vector3 upMovement = forward * verticalInput;// Makes upmovement align with the vertical input in isometric view (north,south)
+        Vector3 heading = new Vector3((rightMovement.x + upMovement.x), 0, (rightMovement.z + upMovement.z)); // Direction of the forward vector
 
+        // If heading is zero, no joystick input.
         if (heading == Vector3.zero)
+        {
+            return;
+        }
+        // IF player turns directly opposite, ignore its input.
+        if (Vector3.Dot(heading, lastDirection) < 0f)
         {
             return;
         }
         else
         {
-            rotation = Quaternion.LookRotation(heading, Vector3.up);
-            transform.rotation = rotation;
+            Quaternion rotation = Quaternion.LookRotation(heading, Vector3.up); // Rotates head towards direction of the movement or heading
+            transform.rotation = rotation; // Rotates object
+            lastDirection = heading;
         }
     }
 
