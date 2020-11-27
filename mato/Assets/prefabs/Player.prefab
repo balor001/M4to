@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeControls: 1
-  moveSpeed: 10
+  moveSpeed: 6
   rotationSpeed: 45
   BodyPartObject: {fileID: 1413155028879216061}
   fireRate: 2
