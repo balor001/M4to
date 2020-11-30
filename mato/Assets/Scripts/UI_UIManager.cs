@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu_PanelManager : MonoBehaviour
+public class UI_UIManager : MonoBehaviour
 {
     public void Switch()
     {

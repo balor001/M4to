@@ -8,6 +8,7 @@ TagManager:
   - BodyPart
   - Enemy
   - Collider
+  - Plane
   layers:
   - Default
   - TransparentFX

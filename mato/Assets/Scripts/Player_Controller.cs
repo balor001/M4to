@@ -46,7 +46,7 @@ public class Player_Controller : MonoBehaviour
         // 
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // Makes right vector basically -45 degrees from the world axis
 
-        if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -108,6 +108,7 @@ public class Player_Controller : MonoBehaviour
         // Snack
         if (other.gameObject.CompareTag("Snack"))
         {
+            if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
             BodyPartObject.GetComponent<Player_GrowScript>().Grow();
             other.gameObject.SetActive(false);
             audioManager.Play("EatSound");

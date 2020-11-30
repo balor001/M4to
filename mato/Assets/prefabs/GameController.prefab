@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winUI: {fileID: 0}
   loseUI: {fileID: 0}
-  winCondition: 6
+  winCondition: 8
   play: 1
