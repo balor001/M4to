@@ -17,7 +17,7 @@ public class clicker : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             //The sound has to be exactly the sound to be played
-            audioManager.Play("Sound");
+            audioManager.Play("Click");
         }
     }
 }
