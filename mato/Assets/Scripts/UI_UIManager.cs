@@ -34,4 +34,9 @@ public class UI_UIManager : MonoBehaviour
         Debug.Log("sceneName to load: " + scenename);
         SceneManager.LoadScene(scenename);
     }
+
+    public void OpenLink(string url)
+    {
+        Application.OpenURL(url);
+    }
 }
