@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
 	//On awake, the script checks if there are any other instances of the audiomanager gameobject, if there are the new one is destroyed.
 	void Awake()
 	{
+
 		if (instance != null)
 		{
 			Destroy(gameObject);
@@ -45,13 +46,14 @@ public class AudioManager : MonoBehaviour
 		//masterVolume = 0.5f;
 		//musicVolume = 0.5f;
 		//SFXVolume = 0.5f;
+		
 
 		//Plays the current gamemusic
 		Play("MenuMusic");
 	}
 
-	//Finds the sound that we want it to play
-	public void Play(string sound)
+    //Finds the sound that we want it to play
+    public void Play(string sound)
 	{
 		Sound SoundInstance = Array.Find(sounds, item => item.name == sound);
 		if (SoundInstance == null)
@@ -108,5 +110,17 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+	public void SaveAudioSettings()
+    {
+		Data_SaveSystem.SaveAudio(this);
+    }	
 
+	public void LoadAudioSettings()
+    {
+		Data_Settings data = Data_SaveSystem.LoadAudio();
+
+		masterVolume = data.SoundMaster;
+		musicVolume = data.SoundMusic;
+		SFXVolume = data.SoundSFX;
+	}
 }

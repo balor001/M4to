@@ -69,18 +69,6 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         SetLevelPlayState(LevelPlayState.Lost);
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        StartGameSetup();
-        SetLevelPlayState(LevelPlayState.Reset);
-    }
-
-    public void NextLevel()
-    {
-
-    }
-
     void OnDestroy()
     {
         Dictionary<string, object> customParams = new Dictionary<string, object>();
