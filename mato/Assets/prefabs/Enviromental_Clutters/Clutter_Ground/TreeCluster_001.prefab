@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7456500356888060604}
-  - component: {fileID: 3992669800435002386}
   m_Layer: 0
-  m_Name: Cluster_001
+  m_Name: TreeCluster_001
   m_TagString: Collider
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -37,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
---- !u!135 &3992669800435002386
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7456500356888060606}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.75
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7456500355446646958
 PrefabInstance:
   m_ObjectHideFlags: 0

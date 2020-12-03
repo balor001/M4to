@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8646235410517331909}
   - component: {fileID: 4634840490288939104}
   - component: {fileID: 7473360293898613930}
+  - component: {fileID: 4821423679498367465}
   m_Layer: 0
   m_Name: RockWall
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4821423679498367465
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986451364208596351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1.3528508, z: 4.2487144}
+  m_Center: {x: 0.099999994, y: 0.5429906, z: -0.0005378723}

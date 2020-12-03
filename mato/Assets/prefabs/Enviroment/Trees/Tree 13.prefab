@@ -88,9 +88,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150219591309017762}
+  - component: {fileID: 2370824158535317910}
   m_Layer: 0
   m_Name: Tree 13
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +112,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2370824158535317910
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675116910109988888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.69
+  m_Center: {x: 0, y: 0.33, z: -0.22}
 --- !u!1 &1182298842207630635
 GameObject:
   m_ObjectHideFlags: 0
