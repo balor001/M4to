@@ -31,7 +31,7 @@ public class Player_Controller : MonoBehaviour
     public Joystick joystick;
 
     AudioManager audioManager;
-
+    UI_Score ui_score;
 
     Vector3 lastDirection;
     public float oppositeThreshhold = 0; // How precisely does the analog stick have to be pressed in the opposite direction it was previously?
@@ -47,6 +47,7 @@ public class Player_Controller : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // Makes right vector basically -45 degrees from the world axis
 
         audioManager = FindObjectOfType<AudioManager>();
+        ui_score = FindObjectOfType<UI_Score>();
     }
 
     private void Update()
@@ -60,6 +61,8 @@ public class Player_Controller : MonoBehaviour
             gameController.WinLevel();
             activeControls = false;
         }
+
+        ui_score.ScoreUI(pickUpCount, gameController.winCondition);
     }
 
     // Update is called once per frame

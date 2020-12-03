@@ -16,7 +16,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     public Canvas loseUI;
 
     // Amount of points needed to win
-    public float winCondition = 3;
+    public int winCondition = 3;
     public bool play = true;
 
     private float secondsElapsed = 0;

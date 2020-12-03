@@ -5,7 +5,7 @@ using UnityEngine;
 public class Game_DelayedStart : MonoBehaviour
 {
     
-    public Player_Controller player_Controller;
+    Player_Controller player_Controller;
     // Start is called before the first frame update
     void Start()
     {
