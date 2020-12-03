@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7713337766816739838
 Transform:
@@ -100,6 +100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6447583126475735752, guid: 893b25c3da9b1094f8a1f50288786040,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 893b25c3da9b1094f8a1f50288786040, type: 3}
 --- !u!4 &5680385826424181682 stripped
@@ -175,6 +180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6447583126475735752, guid: 893b25c3da9b1094f8a1f50288786040,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 893b25c3da9b1094f8a1f50288786040, type: 3}
 --- !u!4 &7927782479595910703 stripped
@@ -190,10 +200,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713337766816739838}
     m_Modifications:
+    - target: {fileID: 1179193609955592808, guid: cd9b8eb43068e8d49a99a005331ef267,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7226672115511605033, guid: cd9b8eb43068e8d49a99a005331ef267,
         type: 3}
       propertyPath: m_Name
       value: Tree 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226672115511605033, guid: cd9b8eb43068e8d49a99a005331ef267,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721983330686182620, guid: cd9b8eb43068e8d49a99a005331ef267,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7998846678888770963, guid: cd9b8eb43068e8d49a99a005331ef267,
         type: 3}

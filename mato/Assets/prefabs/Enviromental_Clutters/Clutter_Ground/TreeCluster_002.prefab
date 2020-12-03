@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Collider
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3768497447918988310
 Transform:
@@ -47,6 +47,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 335097550729075731, guid: 77dc9614f460a824c88357ea9a411e7e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1147663498117842601, guid: 77dc9614f460a824c88357ea9a411e7e,
         type: 3}
@@ -118,10 +123,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3768497447918988310}
     m_Modifications:
+    - target: {fileID: 1977438806464632847, guid: 2454dda6b5ed7a64287b1b7b2d407c6a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284507005627992665, guid: 2454dda6b5ed7a64287b1b7b2d407c6a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6167990460995532525, guid: 2454dda6b5ed7a64287b1b7b2d407c6a,
         type: 3}
       propertyPath: m_Name
       value: Tree 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167990460995532525, guid: 2454dda6b5ed7a64287b1b7b2d407c6a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6832745727078345815, guid: 2454dda6b5ed7a64287b1b7b2d407c6a,
         type: 3}
@@ -208,6 +228,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3768497447918988310}
     m_Modifications:
+    - target: {fileID: 2939737754893402156, guid: 334291aa8835a2445a55faef9b77455a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226920344430776487, guid: 334291aa8835a2445a55faef9b77455a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6284014890868100597, guid: 334291aa8835a2445a55faef9b77455a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -283,6 +313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6664938854359045967, guid: 334291aa8835a2445a55faef9b77455a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334291aa8835a2445a55faef9b77455a, type: 3}
 --- !u!4 &7167806779124238967 stripped
@@ -302,6 +337,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847187156472006519, guid: 8f2663c594b59d04394b9cb2dc088d4e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930451685383880433, guid: 8f2663c594b59d04394b9cb2dc088d4e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3227089780149968333, guid: 8f2663c594b59d04394b9cb2dc088d4e,
         type: 3}
@@ -373,6 +418,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0700002
       objectReference: {fileID: 0}
+    - target: {fileID: 6961447887224980699, guid: 8f2663c594b59d04394b9cb2dc088d4e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f2663c594b59d04394b9cb2dc088d4e, type: 3}
 --- !u!4 &1766688106373811159 stripped
@@ -392,6 +442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 335097550729075731, guid: 77dc9614f460a824c88357ea9a411e7e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1147663498117842601, guid: 77dc9614f460a824c88357ea9a411e7e,
         type: 3}
@@ -522,6 +577,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576140647713239234, guid: 48dc3cf1be0afb64380d678cd189ae8e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48dc3cf1be0afb64380d678cd189ae8e, type: 3}
