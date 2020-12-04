@@ -142,7 +142,7 @@ PrefabInstance:
         type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1394917913}
     - target: {fileID: 1413155028543968141, guid: efc48d6298571e7458b31e1c912f85e8,
         type: 3}
       propertyPath: m_Name
@@ -8551,12 +8551,12 @@ PrefabInstance:
         type: 3}
       propertyPath: winUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1394917915}
     - target: {fileID: 2539983586099264890, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
       propertyPath: loseUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1394917914}
     - target: {fileID: 2539983586099264890, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
       propertyPath: winCondition
@@ -9799,6 +9799,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091, type: 3}
+--- !u!114 &1394917913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2665181659460369800, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
+    type: 3}
+  m_PrefabInstance: {fileID: 1394917912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!223 &1394917914 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2435116452945649690, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
+    type: 3}
+  m_PrefabInstance: {fileID: 1394917912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1394917915 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2435116453287470462, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
+    type: 3}
+  m_PrefabInstance: {fileID: 1394917912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1410068718
 PrefabInstance:
   m_ObjectHideFlags: 0
