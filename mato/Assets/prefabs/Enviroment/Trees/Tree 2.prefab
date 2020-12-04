@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7833117812847467059}
   - component: {fileID: 2207596323634643467}
   - component: {fileID: 7093867550880596400}
-  m_Layer: 0
+  - component: {fileID: 3390971411730018786}
+  m_Layer: 8
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3390971411730018786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493620327036427680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.3649693, y: 4.248863, z: 4.9485044}
+  m_Center: {x: 1.2397925, y: 3.4251604, z: -0.8628081}
 --- !u!1 &2329325365594457528
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +104,8 @@ GameObject:
   - component: {fileID: 8812633383436106998}
   - component: {fileID: 9047079847632930549}
   - component: {fileID: 3188438247458486808}
-  m_Layer: 0
+  - component: {fileID: 3272815574565771970}
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +173,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3272815574565771970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329325365594457528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4186616, y: 5.347534, z: 3.7925866}
+  m_Center: {x: 1.0831914, y: 2.4855523, z: -1.0590094}
 --- !u!1 &3666666924530787731
 GameObject:
   m_ObjectHideFlags: 0

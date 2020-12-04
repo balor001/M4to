@@ -24,12 +24,17 @@ public class Camera_Follow : MonoBehaviour
     //private Vector3 smoothedPosition;
     private Vector3 velocity = Vector3.zero;
 
+    public Transform[] obstructions;
+    private int oldHitsNumber;
+
     // Start is called before the first frame update
     void Start()
     {
         if (inheritTransform == true) offset = transform.position;
         //sets the target as given targetname(default Head)
         target = FindTarget(targetName);
+
+
     }
 
     // Update is called once per frame
@@ -44,6 +49,7 @@ public class Camera_Follow : MonoBehaviour
         //Turns the camera to look directly at the player
         //transform.LookAt(target);
         //transform.position = smoothedPosition;
+        ViewObstructed();
     }
 
     //Takes the gameobject name and returns the positional value of the target that has the given name
@@ -56,5 +62,57 @@ public class Camera_Follow : MonoBehaviour
         target = lookAtTarget.GetComponent<Transform>();
         //Returns the value
         return target;
+    }
+
+    void ViewObstructed()
+    {
+        float characterDistance = Vector3.Distance(transform.position, target.transform.position);
+
+        int layerNumber = LayerMask.NameToLayer("Obstruction");
+        int layerMask = 1 << layerNumber;
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, target.position - transform.position, characterDistance, layerMask);
+
+        if (hits.Length > 0)
+        {   // Means that some stuff is blocking the view
+            int newHits = hits.Length - oldHitsNumber;
+
+            if (obstructions != null && obstructions.Length > 0 && newHits < 0)
+            {
+                // Repaint all the previous obstructions. Because some of the stuff might be not blocking anymore
+                for (int i = 0; i < obstructions.Length; i++)
+                {
+                    Color solidColor = obstructions[i].gameObject.GetComponent<Renderer>().material.color;
+                    solidColor.a = 1f;
+                    obstructions[i].gameObject.GetComponent<Renderer>().material.color = solidColor;
+                }
+            }
+            obstructions = new Transform[hits.Length];
+            // Hide the current obstructions 
+            for (int i = 0; i < hits.Length; i++)
+            {
+                Debug.Log("Transparent!");
+                Transform obstruction = hits[i].transform;
+                Color transparentColor = obstruction.gameObject.GetComponent<Renderer>().material.color;
+                transparentColor.a = 0.2f;
+                obstruction.gameObject.GetComponent<Renderer>().material.color = transparentColor;
+                obstructions[i] = obstruction;
+            }
+            oldHitsNumber = hits.Length;
+        }
+        else
+        {   // Mean that no more stuff is blocking the view and sometimes all the stuff is not blocking as the same time
+            if (obstructions != null && obstructions.Length > 0)
+            {
+                for (int i = 0; i < obstructions.Length; i++)
+                {
+                    Color solidColor = obstructions[i].gameObject.GetComponent<Renderer>().material.color;
+                    solidColor.a = 1f;
+                    obstructions[i].gameObject.GetComponent<Renderer>().material.color = solidColor;
+                }
+                oldHitsNumber = 0;
+                obstructions = null;
+            }
+
+        }
     }
 }

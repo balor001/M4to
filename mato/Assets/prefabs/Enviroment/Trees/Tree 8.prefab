@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8975773273495832479}
   - component: {fileID: 5923163424382691347}
   - component: {fileID: 4368866843329669439}
-  m_Layer: 0
+  - component: {fileID: 7496480414643356735}
+  m_Layer: 8
   m_Name: Sphere.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7496480414643356735
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939737754893402156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4101954, y: 2.4856052, z: 3.1656122}
+  m_Center: {x: -0.020215392, y: 3.7209735, z: 0.21964562}
 --- !u!1 &6226920344430776487
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +104,8 @@ GameObject:
   - component: {fileID: 6037849190969834268}
   - component: {fileID: 2480117511000517481}
   - component: {fileID: 2154653617772111244}
-  m_Layer: 0
+  - component: {fileID: 6928793097587347825}
+  m_Layer: 8
   m_Name: Circle.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +173,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6928793097587347825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226920344430776487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.78301936, y: 3.8940978, z: 0.807196}
+  m_Center: {x: -0.02730295, y: 1.4166732, z: 0.03274782}
 --- !u!1 &6664938854359045967
 GameObject:
   m_ObjectHideFlags: 0
