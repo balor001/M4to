@@ -57,7 +57,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         play = false;
         wins++;
         winUI.gameObject.SetActive(true);
-        ShowInterstitialAd();
+        //ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Won);
     }
 
@@ -65,7 +65,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     {
         gameOvers++;
         loseUI.gameObject.SetActive(true);
-        ShowInterstitialAd();
+        //ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Lost);
     }
 
