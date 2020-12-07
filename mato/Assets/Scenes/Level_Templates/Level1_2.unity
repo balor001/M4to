@@ -8560,7 +8560,7 @@ PrefabInstance:
     - target: {fileID: 2539983586099264890, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
       propertyPath: winCondition
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2539983586099264891, guid: 160247278e00e794481b1824dcedffa8,
         type: 3}
@@ -9687,6 +9687,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2435116453287470450, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435116454127973490, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level1_3
+      objectReference: {fileID: 0}
     - target: {fileID: 2435116454607596227, guid: 2a8c15ea1ae269c4b9f7fed4e8f23091,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -27,7 +27,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     int timer = 0;
     private void Awake()
     {
-        Advertisement.Initialize("3903621", true); // inizialize advertisements with Android GameID
+        Advertisement.Initialize("3903621", false); // inizialize advertisements with Android GameID
 
         // Start level analytics
         thisScene = SceneManager.GetActiveScene();
