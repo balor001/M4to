@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class Data_SaveSystem
+public static class Data_SaveSystem
 {
     public static void SaveAudio(AudioManager audioManager)
     {
@@ -14,6 +14,7 @@ public class Data_SaveSystem
         Data_Settings data = new Data_Settings(audioManager);
 
         formatter.Serialize(stream, data);
+        Debug.Log("Saved in " + path);
         stream.Close();
     }
 

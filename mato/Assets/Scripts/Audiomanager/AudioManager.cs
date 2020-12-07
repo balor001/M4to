@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
 		//masterVolume = 0.5f;
 		//musicVolume = 0.5f;
 		//SFXVolume = 0.5f;
-		
+		LoadAudioSettings();
 
 		//Plays the current gamemusic
 		Play("MenuMusic");

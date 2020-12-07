@@ -23,6 +23,8 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     private int gameOvers = 0;
     private int wins = 0;
 
+    private int randomNumber = 0;
+    int timer = 0;
     private void Awake()
     {
         Advertisement.Initialize("3903621", true); // inizialize advertisements with Android GameID
@@ -32,6 +34,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         AnalyticsEvent.LevelStart(thisScene.name, thisScene.buildIndex);
         StartGameSetup();
         play = true;
+
     }
 
     public void SetLevelPlayState(LevelPlayState newState)
@@ -98,11 +101,16 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     #region Advertisement
     public void ShowInterstitialAd()
     {
+        randomNumber = Random.Range(0, 4);
+
+
         // Check if UnityAds ready before calling Show method:
-        if (Advertisement.IsReady())
+        if (Advertisement.IsReady() && randomNumber == 0)
         {
             Advertisement.Show();
+
         }
+
         else
         {
             Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
