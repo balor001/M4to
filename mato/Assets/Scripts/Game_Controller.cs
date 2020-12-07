@@ -25,7 +25,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
 
     private void Awake()
     {
-        Advertisement.Initialize("3903621", true); // inizialize advertisements with Android GameID
+        Advertisement.Initialize("3903621", false); // inizialize advertisements with Android GameID
 
         // Start level analytics
         thisScene = SceneManager.GetActiveScene();
@@ -57,7 +57,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         play = false;
         wins++;
         winUI.gameObject.SetActive(true);
-        //ShowInterstitialAd();
+        ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Won);
     }
 
@@ -65,7 +65,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     {
         gameOvers++;
         loseUI.gameObject.SetActive(true);
-        //ShowInterstitialAd();
+        ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Lost);
     }
 
