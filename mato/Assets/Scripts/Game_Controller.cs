@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 using UnityEngine.Analytics;
 
-public class Game_Controller : MonoBehaviour, IUnityAdsListener
+public class Game_Controller : MonoBehaviour//, IUnityAdsListener
 {
     public enum LevelPlayState { InProgress, Won, Lost, Reset, Quit }
     private LevelPlayState state = LevelPlayState.InProgress;
@@ -27,7 +27,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     int timer = 0;
     private void Awake()
     {
-        Advertisement.Initialize("3903621", false); // inizialize advertisements with Android GameID
+       // Advertisement.Initialize("3903621", false); // inizialize advertisements with Android GameID
 
         // Start level analytics
         thisScene = SceneManager.GetActiveScene();
@@ -60,7 +60,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         play = false;
         wins++;
         winUI.gameObject.SetActive(true);
-        ShowInterstitialAd();
+        //ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Won);
     }
 
@@ -68,7 +68,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
     {
         gameOvers++;
         loseUI.gameObject.SetActive(true);
-        ShowInterstitialAd();
+       // ShowInterstitialAd();
         SetLevelPlayState(LevelPlayState.Lost);
     }
 
@@ -98,6 +98,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         }
     }
 
+    /*
     #region Advertisement
     public void ShowInterstitialAd()
     {
@@ -116,6 +117,7 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
             Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
         }
     }
+    */
 
     // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
@@ -158,9 +160,9 @@ public class Game_Controller : MonoBehaviour, IUnityAdsListener
         throw new System.NotImplementedException();
     }
 
-    void UnityEngine.Advertisements.IUnityAdsListener.OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        throw new System.NotImplementedException();
-    }
-    #endregion
+    //void UnityEngine.Advertisements.IUnityAdsListener.OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+    //#endregion
 }
