@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class UI_UIManager : MonoBehaviour
 {
 
-    Scene currentScene;
-    Scene nextScene;
+   public Scene currentScene;
+   public Scene nextScene;
 
-    private void Start()
+    void Awake()
     {
         currentScene = SceneManager.GetActiveScene();
         nextScene = SceneManager.GetSceneByBuildIndex(currentScene.buildIndex + 1);
@@ -36,6 +37,25 @@ public class UI_UIManager : MonoBehaviour
         Application.Quit();
         Debug.Log("Game is exiting");
         //Just to make sure its working
+    }
+
+    public void NextScene()
+    {
+        currentScene = SceneManager.GetActiveScene();
+        nextScene = SceneManager.GetSceneByBuildIndex(currentScene.buildIndex + 1);
+
+        Debug.Log("Current Scene: " + currentScene.name);
+        Debug.Log("Next Scene: " + nextScene.name);
+
+        if (nextScene.IsValid())
+        {
+            Debug.LogWarning("Loading the next scene in index: " + nextScene.buildIndex, this);
+            SceneManager.LoadScene(nextScene.name);
+        }
+        else
+        {
+            Debug.LogError("No Valid Scene to Load", this);
+        }
     }
 
     public void LoadScene(string scenename)
