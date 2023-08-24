@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,8 +20,16 @@ public class Game_DelayedStart : MonoBehaviour
     // Update is called once per frame
     private IEnumerator WaitForSceneLoad()
     {
-        //Sets player maneuverability off 
-        player_Controller.activeControls = false;
+        try
+        {
+            //Sets player maneuverability off 
+            player_Controller.activeControls = false;
+        }
+        catch (Exception e)
+        {
+            print("NoPlayerController");
+        }
+
 
         //Waits a second, then changes text, repeats until GO
         yield return new WaitForSeconds(1);
@@ -31,8 +40,15 @@ public class Game_DelayedStart : MonoBehaviour
         GetComponent<TMPro.TextMeshProUGUI>().text = "GO";
         GetComponent<TMPro.TextMeshProUGUI>().fontSize = 200;
 
-        //Sets player control on
-        player_Controller.activeControls = true;
+        try
+        {
+            //Sets player control on
+            player_Controller.activeControls = true;
+        }
+        catch (Exception e)
+        {
+            print("NoPlayerController");
+        }
 
         //Leaves Go on screen
         yield return new WaitForSeconds(1);
