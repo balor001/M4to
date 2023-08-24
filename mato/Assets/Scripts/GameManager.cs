@@ -25,6 +25,13 @@ public class GameManager : MonoBehaviour//, IUnityAdsListener
 
     private int randomNumber = 0;
     int timer = 0;
+
+    public int pickUpCount = 0;
+    public int countTreshold = 3;
+
+    private UIScore uiScore;
+    private Player_Controller player_Controller;
+
     private void Awake()
     {
        // Advertisement.Initialize("3903621", false); // inizialize advertisements with Android GameID
@@ -36,6 +43,11 @@ public class GameManager : MonoBehaviour//, IUnityAdsListener
         play = true;
 
     }
+    private void Start()
+    {
+        uiScore = FindObjectOfType<UIScore>();
+        player_Controller = FindObjectOfType<Player_Controller>();
+    }
 
     public void SetLevelPlayState(LevelPlayState newState)
     {
@@ -45,6 +57,7 @@ public class GameManager : MonoBehaviour//, IUnityAdsListener
     private void Update()
     {
         secondsElapsed += Time.deltaTime;
+        ScoreHandler();
     }
 
     void StartGameSetup()
@@ -158,6 +171,18 @@ public class GameManager : MonoBehaviour//, IUnityAdsListener
     public void OnUnityAdsDidStart(string placementId)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void ScoreHandler()
+    {
+        // Win condition, player wins when he picks up enough snacks
+        if (pickUpCount >= winCondition && play)
+        {
+            WinLevel();
+            player_Controller.activeControls = false;
+        }
+
+        uiScore.ManageScoreUI(pickUpCount, winCondition);
     }
 
     //void UnityEngine.Advertisements.IUnityAdsListener.OnUnityAdsDidFinish(string placementId, ShowResult showResult)

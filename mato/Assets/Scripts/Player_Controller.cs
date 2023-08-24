@@ -19,14 +19,9 @@ public class Player_Controller : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-
-    public int pickUpCount = 0;
-    public int countTreshold = 3;
-
     private GameManager gameManager;
     private Joystick joystick;
     private AudioManager audioManager;
-    private UIScore uiScore;
 
     Vector3 lastDirection;
     public float oppositeThreshhold = 0; // How precisely does the analog stick have to be pressed in the opposite direction it was previously?
@@ -42,7 +37,6 @@ public class Player_Controller : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // Makes right vector basically -45 degrees from the world axis
 
         audioManager = FindObjectOfType<AudioManager>();
-        uiScore = FindObjectOfType<UIScore>();
         gameManager = FindObjectOfType<GameManager>();
         joystick = FindObjectOfType<Joystick>();
     }
@@ -51,15 +45,6 @@ public class Player_Controller : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal") + joystick.Horizontal;
         verticalInput = Input.GetAxis("Vertical") + joystick.Vertical;
-
-        // Win condition, player wins when he picks up enough snacks
-        if (pickUpCount >= gameManager.winCondition && gameManager.play)
-        {
-            gameManager.WinLevel();
-            activeControls = false;
-        }
-
-        uiScore.ScoreUI(pickUpCount, gameManager.winCondition);
     }
 
     // Update is called once per frame
@@ -112,7 +97,7 @@ public class Player_Controller : MonoBehaviour
             BodyPartObject.GetComponent<Player_GrowScript>().Grow();
             other.gameObject.SetActive(false);
             audioManager.Play("EatSound");
-            pickUpCount++;
+            gameManager.pickUpCount++;
         }
 
         // When Colliding with itself
