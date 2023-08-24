@@ -16,10 +16,6 @@ public class Player_Controller : MonoBehaviour
 
     public GameObject BodyPartObject;
 
-    public float fireRate = 2f;
-    public float nextFire;
-    public float bulletForce = 100f;
-
     private float horizontalInput;
     private float verticalInput;
 
@@ -27,11 +23,10 @@ public class Player_Controller : MonoBehaviour
     public int pickUpCount = 0;
     public int countTreshold = 3;
 
-    public Game_Controller gameController;
-    public Joystick joystick;
-
-    AudioManager audioManager;
-    UI_Score ui_score;
+    private GameManager gameManager;
+    private Joystick joystick;
+    private AudioManager audioManager;
+    private UIScore uiScore;
 
     Vector3 lastDirection;
     public float oppositeThreshhold = 0; // How precisely does the analog stick have to be pressed in the opposite direction it was previously?
@@ -47,7 +42,9 @@ public class Player_Controller : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // Makes right vector basically -45 degrees from the world axis
 
         audioManager = FindObjectOfType<AudioManager>();
-        ui_score = FindObjectOfType<UI_Score>();
+        uiScore = FindObjectOfType<UIScore>();
+        gameManager = FindObjectOfType<GameManager>();
+        joystick = FindObjectOfType<Joystick>();
     }
 
     private void Update()
@@ -56,13 +53,13 @@ public class Player_Controller : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical") + joystick.Vertical;
 
         // Win condition, player wins when he picks up enough snacks
-        if (pickUpCount >= gameController.winCondition && gameController.play)
+        if (pickUpCount >= gameManager.winCondition && gameManager.play)
         {
-            gameController.WinLevel();
+            gameManager.WinLevel();
             activeControls = false;
         }
 
-        ui_score.ScoreUI(pickUpCount, gameController.winCondition);
+        uiScore.ScoreUI(pickUpCount, gameManager.winCondition);
     }
 
     // Update is called once per frame
@@ -121,14 +118,14 @@ public class Player_Controller : MonoBehaviour
         // When Colliding with itself
         if (other.gameObject.CompareTag("Player"))
         {
-            gameController.GameOver();
+            gameManager.GameOver();
             activeControls = false;
         }
 
         // When colliding with a collidable object(s)
         if (other.gameObject.CompareTag("Collider"))
         {
-            gameController.GameOver();
+            gameManager.GameOver();
             activeControls = false;
         }
     }

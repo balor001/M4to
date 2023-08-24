@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UI_Score : MonoBehaviour
+public class UIScore : MonoBehaviour
 {
     Player_Controller player_Controller;
 

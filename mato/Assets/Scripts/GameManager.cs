@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 using UnityEngine.Analytics;
 
-public class Game_Controller : MonoBehaviour//, IUnityAdsListener
+public class GameManager : MonoBehaviour//, IUnityAdsListener
 {
     public enum LevelPlayState { InProgress, Won, Lost, Reset, Quit }
     private LevelPlayState state = LevelPlayState.InProgress;
