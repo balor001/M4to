@@ -13,7 +13,10 @@ public class UI_UIManager : MonoBehaviour
     void Awake()
     {
         currentScene = SceneManager.GetActiveScene();
+        Debug.Log("current scene:" + currentScene);
         nextScene = SceneManager.GetSceneByBuildIndex(currentScene.buildIndex + 1);
+        Debug.Log("next scene:" + nextScene);
+
     }
 
     public void Switch()
@@ -42,15 +45,12 @@ public class UI_UIManager : MonoBehaviour
     public void NextScene()
     {
         currentScene = SceneManager.GetActiveScene();
-        nextScene = SceneManager.GetSceneByBuildIndex(currentScene.buildIndex + 1);
+        int nextBuildIndex = currentScene.buildIndex + 1;
 
-        Debug.Log("Current Scene: " + currentScene.name);
-        Debug.Log("Next Scene: " + nextScene.name);
-
-        if (nextScene.IsValid())
+        if (nextBuildIndex < SceneManager.sceneCountInBuildSettings)
         {
-            Debug.LogWarning("Loading the next scene in index: " + nextScene.buildIndex, this);
-            SceneManager.LoadScene(nextScene.name);
+            Debug.LogWarning("Loading the next scene in index: " + nextBuildIndex, this);
+            SceneManager.LoadScene(nextBuildIndex);
         }
         else
         {
